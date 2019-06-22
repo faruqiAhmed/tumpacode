@@ -1,0 +1,109 @@
+def intersection(list1, list2):
+        list3 = [list(filter(lambda x: x in list1, sublist)) for sublist in list2] 
+        return list3
+    
+      
+input_string1 = input("Enter a First List: ")
+list1  = input_string1.split()
+print(list1,"\n")
+
+input_string2 = input("Enter a Second List: ")
+list2  = input_string2.split()
+print(list2,"\n")
+
+cont = "y"
+while cont.lower() == "y":
+    print("Select operation\n1.Remove\n2.Replace\n3.Filter")
+
+    choice = input("Enter choice(1/2/3):")
+
+    
+
+    if choice == '1':
+        cont = "y"
+        while cont.lower() == "y":
+            print("Select operation\n1.Remove A\n2.Remove D\n")
+            
+            c = input("Enter choice(1/2):")
+            if c=='1':
+                    input_string3 = "A"
+                    sub = input_string1.translate({ord(i): None for i in input_string3})
+                    remove = sub.split()
+                    print(remove,"\n")
+                    word = intersection(list1, list2)
+    
+                    print("...........After Remove Percentage..............\n")
+           
+                
+                    common = len(remove)
+                    first = len(list1)
+            
+                    print("Filter Characters Length    = ",common)
+                    print("Lenght of Removed Character = ",first)
+                    main = (100 * common)/first
+                    print(str(main) +"%\n")
+            elif c =='2':
+                  input_string3 = "D"
+                  sub = input_string1.translate({ord(i): None for i in input_string3})
+                  remove = sub.split()
+                  print(remove,"\n")
+                  word = intersection(list1, list2)
+    
+                  print("...........After Remove Percentage..............\n")
+           
+                
+                  common = len(remove)
+                  first = len(list1)
+            
+                  print("Filter Characters Length    = ",common)
+                  print("Lenght of Removed Character = ",first)
+                  main = (100 * common)/first
+                  print(str(main) +"%\n")
+            else:
+                    print("Invalid input")
+            cont = input("Continue Remove?y/n:")
+            if cont == "n":
+                    break
+              
+
+    elif choice == '2':
+
+        input_string5 = input("Enter the Replace Value: ")
+        list5  = input_string5.split()
+
+        input_string6 = input("Enter the value you want to Replace: ")
+        list6  = input_string6.split()
+
+        replace =  [w.replace(input_string6, input_string5) for w in list1]
+        print(replace)
+        print("...........After Remove Percentage..............\n")
+           
+                
+        common = len(replace)
+        first = len(list1)
+            
+        print("Filter Characters Length    = ",common)
+        print("Lenght of Removed Character = ",first)
+        main = (100 * common)/first
+        print(str(main) +"%\n")
+
+
+
+    elif choice == '3':
+       word = intersection(list1, list2)
+       for we in word:
+               print(we,"\n")
+
+       print("........... Without Remove Percentage  Section..............\n")
+       common = len(word)
+       first = len(list1)
+       print("The Words length After Filtering = ",common)
+       print("Main List Lenght After Filtering = ",first)
+       main = (100 * common)/first
+       print(str(main) +"%\n")
+
+    else:
+       print("Invalid input")
+    cont = input("Continue?y/n:")
+    if cont == "n":
+        break
